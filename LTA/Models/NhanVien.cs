@@ -11,8 +11,8 @@ namespace LTA.Models
     public class NhanVien
     {
         [Key]
-        public string TenNhanVien { get; set; }
         public string MaNhanVien { get; set; }
+        public string TenNhanVien { get; set; }
         public string SDTNhanVien { get; set; }
 
     }

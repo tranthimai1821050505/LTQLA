@@ -11,8 +11,9 @@ namespace LTA.Models
     public class KhachHang
     {
         [Key]
-        public string TenKhachHang { get; set; }
         public string MaKhachHang { get; set; }
+        public string TenKhachHang { get; set; }
+      
 
     }
 }

@@ -21,6 +21,7 @@ namespace LTA.Models
         public virtual DbSet<ThanhToan> ThanhToans { get; set; }
         public virtual DbSet<DonHang> DonHangs { get; set; }
         public virtual DbSet<DanhMuc> DanhMucs { get; set; }
+        public System.Data.Entity.DbSet<LTA.Models.LoaiDanhMuc> LoaiDanhMucs { get; set; }
         public virtual DbSet<DonThanhToan> DonThanhToans { get; set; }
         public virtual DbSet<DonPhieuThu> DonPhieuThus { get; set; }
 
@@ -95,6 +96,13 @@ namespace LTA.Models
             modelBuilder.Entity<DanhMuc>()
               .Property(e => e.TenDanhMuc)
               .IsUnicode(false);
+
+            modelBuilder.Entity<LoaiDanhMuc>()
+             .Property(e => e.MaLoaiDanhMuc)
+             .IsUnicode(false);
+            modelBuilder.Entity<LoaiDanhMuc>()
+             .Property(e => e.TenLoaiDanhMuc)
+             .IsUnicode(false);
 
             modelBuilder.Entity<DonThanhToan>()
              .Property(e => e.SoPhieuThanhToan)

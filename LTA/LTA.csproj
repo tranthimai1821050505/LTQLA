@@ -134,6 +134,7 @@
     <Compile Include="Controllers\DonThanhToansController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangsController.cs" />
+    <Compile Include="Controllers\LoaiDanhMucsController.cs" />
     <Compile Include="Controllers\NgaysController.cs" />
     <Compile Include="Controllers\NhanViensController.cs" />
     <Compile Include="Controllers\PhieuThusController.cs" />
@@ -176,6 +177,18 @@
     <Compile Include="Migrations\202103081439108_Create_Table_DonThanhToan.cs" />
     <Compile Include="Migrations\202103081439108_Create_Table_DonThanhToan.Designer.cs">
       <DependentUpon>202103081439108_Create_Table_DonThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103090251256_Alter_Table_KhachHang.cs" />
+    <Compile Include="Migrations\202103090251256_Alter_Table_KhachHang.Designer.cs">
+      <DependentUpon>202103090251256_Alter_Table_KhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103090319542_Alter_Table_NhanVien.cs" />
+    <Compile Include="Migrations\202103090319542_Alter_Table_NhanVien.Designer.cs">
+      <DependentUpon>202103090319542_Alter_Table_NhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103090325474_Create_Table_LoaiDanhMuc.cs" />
+    <Compile Include="Migrations\202103090325474_Create_Table_LoaiDanhMuc.Designer.cs">
+      <DependentUpon>202103090325474_Create_Table_LoaiDanhMuc.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DanhMuc.cs" />
@@ -272,6 +285,11 @@
     <Content Include="Views\DonThanhToans\Details.cshtml" />
     <Content Include="Views\DonThanhToans\Edit.cshtml" />
     <Content Include="Views\DonThanhToans\Index.cshtml" />
+    <Content Include="Views\LoaiDanhMucs\Create.cshtml" />
+    <Content Include="Views\LoaiDanhMucs\Delete.cshtml" />
+    <Content Include="Views\LoaiDanhMucs\Details.cshtml" />
+    <Content Include="Views\LoaiDanhMucs\Edit.cshtml" />
+    <Content Include="Views\LoaiDanhMucs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -316,6 +334,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103081439108_Create_Table_DonThanhToan.resx">
       <DependentUpon>202103081439108_Create_Table_DonThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103090251256_Alter_Table_KhachHang.resx">
+      <DependentUpon>202103090251256_Alter_Table_KhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103090319542_Alter_Table_NhanVien.resx">
+      <DependentUpon>202103090319542_Alter_Table_NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103090325474_Create_Table_LoaiDanhMuc.resx">
+      <DependentUpon>202103090325474_Create_Table_LoaiDanhMuc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
