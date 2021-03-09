@@ -1,0 +1,52 @@
+﻿@model IEnumerable<LTA.Models.ThanhToan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SoPhieuThanhToan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaNhanVien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayThang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TongTien)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.SoPhieuThanhToan)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaNhanVien)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NgayThang)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TongTien)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.SoPhieuThanhToan }) |
+        @Html.ActionLink("Details", "Details", new { id = item.SoPhieuThanhToan }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.SoPhieuThanhToan })
+    </td>
+</tr>
+}
+
+</table>

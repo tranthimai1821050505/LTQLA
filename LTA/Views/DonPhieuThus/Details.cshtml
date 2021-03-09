@@ -1,0 +1,43 @@
+﻿@model LTA.Models.DonPhieuThu
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DonPhieuThu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaDanhMuc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaDanhMuc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienDanhMuc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienDanhMuc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonGiaDanhMuc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGiaDanhMuc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SoPhieuThu }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
