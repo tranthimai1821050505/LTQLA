@@ -13,5 +13,6 @@ namespace LTA.Models
         [Key]
         public string MaLoaiDanhMuc { get; set; }
         public string TenLoaiDanhMuc { get; set; }
+        public bool TrangThai { get; set; }
     }
 }
