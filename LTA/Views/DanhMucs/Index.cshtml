@@ -27,7 +27,7 @@
         @Html.DisplayFor(modelItem => item.MaDanhMuc)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.TenDanhMuc)
+        @Html.Raw(item.TenDanhMuc)
     </td>
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.MaDanhMuc }) |

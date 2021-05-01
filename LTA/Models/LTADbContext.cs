@@ -24,6 +24,7 @@ namespace LTA.Models
         public System.Data.Entity.DbSet<LTA.Models.LoaiDanhMuc> LoaiDanhMucs { get; set; }
         public virtual DbSet<DonThanhToan> DonThanhToans { get; set; }
         public virtual DbSet<DonPhieuThu> DonPhieuThus { get; set; }
+        public virtual DbSet<CheckAccount> CheckAccounts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

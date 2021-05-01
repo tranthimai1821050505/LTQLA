@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace LTA.Models
 {
@@ -12,6 +13,7 @@ namespace LTA.Models
     {
         [Key]
         public string MaDanhMuc { get; set; }
+        [AllowHtml]
         public string TenDanhMuc { get; set; }
     }
 }
