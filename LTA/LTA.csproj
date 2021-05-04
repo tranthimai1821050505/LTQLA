@@ -201,6 +201,8 @@
     <Compile Include="Models\DonHang.cs" />
     <Compile Include="Models\DonPhieuThu.cs" />
     <Compile Include="Models\DonThanhToan.cs" />
+    <Compile Include="Models\Encrytion.cs" />
+    <Compile Include="Models\FormAuthentication.cs" />
     <Compile Include="Models\KhachHang.cs" />
     <Compile Include="Models\LoaiDanhMuc.cs" />
     <Compile Include="Models\LTADbContext.cs" />
@@ -645,9 +647,11 @@
     <Content Include="Views\LoaiDanhMucs\Edit.cshtml" />
     <Content Include="Views\LoaiDanhMucs\Index.cshtml" />
     <Content Include="Views\CheckAccount\Login.cshtml" />
+    <Content Include="Views\CheckAccount\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\Excels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
