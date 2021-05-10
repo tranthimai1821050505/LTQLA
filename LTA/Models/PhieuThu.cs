@@ -14,7 +14,7 @@ namespace LTA.Models
         public string SoPhieuThu { get; set; }
         public string MaNhanVien { get; set; }
         public string NgayThang { get; set; }
-        public string SoKhach { get; set; }
+        public string MaKhachHang { get; set; }
         public string TongTien { get; set; }
     }
 }

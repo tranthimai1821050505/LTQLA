@@ -37,6 +37,11 @@ namespace LTA.Controllers
             }
             return View(Checkacc);
         }
+        // GET: Account
+        //public ActionResult Login()
+        //{
+        //    return View();
+        //}
         public ViewResult Login(string returnUrl)
         {
             ViewBag.returnUrl = returnUrl;
@@ -45,25 +50,51 @@ namespace LTA.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-
-        public ActionResult Login(CheckAccount Checkacc)
+        public ActionResult Login(string CheckUsername, string CheckPassword)
         {
-            if (ModelState.IsValid)
+            if (string.IsNullOrEmpty(CheckUsername))
             {
-                string encrytionpass = encry.PasswordEncrytion(Checkacc.CheckPassword);
-                var model = db.CheckAccounts.Where(m => m.CheckUsername == Checkacc.CheckUsername && m.CheckPassword == encrytionpass).ToList().Count();
-                if (model == 1)
+                ViewBag.CheckUsernameError = " Nhập Username đi";
+            }
+            else if (string.IsNullOrEmpty(CheckPassword))
+            {
+                ViewBag.CheckPasswordError = " Nhập Password đi";
+            }
+            else
+            {
+                if (CheckUsername.Equals("CheckUsername") && CheckPassword.Equals("abc123"))
                 {
-                    FormsAuthentication.SetAuthCookie(Checkacc.CheckUsername, true);
+                    FormsAuthentication.SetAuthCookie(CheckUsername, false);
                     return RedirectToAction("Index", "Home");
-                }    
+                }
                 else
                 {
-                    ModelState.AddModelError("", "Thông tin đăng nhập không chính xác");
-                }    
+                    ViewBag.invalidData = "Nhập username = CheckUsername và pass = abc123 đi";
+                }
             }
-            return View(Checkacc);
+            ViewBag.CheckUsername = CheckUsername;
+            return View();
         }
+        // cái đang làm
+        //public ActionResult Login(CheckAccount Checkacc)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        string encrytionpass = encry.PasswordEncrytion(Checkacc.CheckPassword);
+        //        var model = db.CheckAccounts.Where(m => m.CheckUsername == Checkacc.CheckUsername && m.CheckPassword == encrytionpass).ToList().Count();
+        //        if (model == 1)
+        //        {
+        //            FormsAuthentication.SetAuthCookie(Checkacc.CheckUsername, true);
+        //            return RedirectToAction("Index", "Home");
+        //        }
+        //        else
+        //        {
+        //            ModelState.AddModelError("", "Thông tin đăng nhập không chính xác");
+        //        }
+        //    }
+        //    return View(Checkacc);
+        //}
+
         //public ActionResult Login(CheckAccountController Checkacc, String returnUrl)
         //{
         //    if (ModelState.IsValid)
@@ -82,6 +113,7 @@ namespace LTA.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
+
         private ActionResult RedirectToLocal(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))

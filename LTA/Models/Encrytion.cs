@@ -11,8 +11,6 @@ namespace LTA.Models
         public string PasswordEncrytion(string pass)
         {
             return FormsAuthentication.HashPasswordForStoringInConfigFile(pass.Trim(), "MD5");
-            //return FormsAuthentication.HashPasswordForStoringInConfigFile(pass.Trim(), "MD5");
-        }
-          
+        }  
     }
 }

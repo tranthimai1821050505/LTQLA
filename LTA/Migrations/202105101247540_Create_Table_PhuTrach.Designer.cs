@@ -7,13 +7,13 @@ namespace LTA.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Create_Table_PhieuThu : IMigrationMetadata
+    public sealed partial class Create_Table_PhuTrach : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Create_Table_PhieuThu));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Create_Table_PhuTrach));
         
         string IMigrationMetadata.Id
         {
-            get { return "202103081339446_Create_Table_PhieuThu"; }
+            get { return "202105101247540_Create_Table_PhuTrach"; }
         }
         
         string IMigrationMetadata.Source

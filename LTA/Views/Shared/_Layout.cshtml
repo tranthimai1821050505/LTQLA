@@ -17,13 +17,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Cafe24", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @*<li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                    <li>@Html.ActionLink("Bàn", "Index", "Bans")</li>
+                    <li>@Html.ActionLink("Ca", "Index", "Cas")</li>
                     <li>@Html.ActionLink("Danh Mục", "Index", "DanhMucs")</li>
                     <li>@Html.ActionLink("Đơn Hàng", "Index", "DonHangs")</li>
                     <li>@Html.ActionLink("Đơn Phiếu Thu", "Index", "DonPhieuThus")</li>
@@ -33,6 +35,8 @@
                     <li>@Html.ActionLink("Ngày", "Index", "Ngays")</li>
                     <li>@Html.ActionLink("Nhân Viên", "Index", "NhanViens")</li>
                     <li>@Html.ActionLink("Phiếu Thu", "Index", "PhieuThus")</li>
+                    <li>@Html.ActionLink("Phụ Trách", "Index", "PhuTrachs")</li>
+                    <li>@Html.ActionLink("Đối tác", "Index", "QuanBans")</li>
                     <li>@Html.ActionLink("Thanh Toán", "Index", "ThanhToans")</li>
                     <li>@Html.ActionLink("Đăng nhập", "Login", "CheckAccount")</li>
                     <li>@Html.ActionLink("Đăng xuất", "Logoff", "CheckAccount")</li>
@@ -44,13 +48,51 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        <hr style="border-top:1px solid #d9d9d9;margin-top:-2px;">
+        <!--banner-->
+        <div class="row">
+            <div class="col-2">
+
+            </div>
+            <div class="col-8">
+                <!--slide image-->
+                <div class="row">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img style="width: 100%; height: 500px;" src="~/Assets/images/banner.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img style="width: 100%; height: 500px;" src="~/Assets/images/banner1.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img style="width: 100%; height: 500px;" src="~/Assets/images/banner2.jpg" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+
+            </div>
+        </div>
+        <p></p>
+        <a style=" margin-left: 5px; font-size: 50px;" href="https://www.facebook.com/gio.chuong.7374"> <b style= "text-align: center;"> Công ty Cổ Phần Mai Ngọc</b></a>
+        <div class="col-3" style="margin-top:30px;">
+            <p style="color:black;font-size:25px;">Chi nhánh cơ sở 11: Quán Cafe 24</p>
+            <p style="color:black;font-size:20px;">Bản đồ chỉ dẫn</p>
+            <li><a href="#" style="color:black;">Số 18 Phố Viên - P.Đức Thắng - Q.Bắc Từ Liêm - Hà Nội</a></li>
+            <iframe style="margin-top:25px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.00660049477!2d105.77165101424606!3d21.072398591664538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134552defbed8e9%3A0x1584f79c805eb017!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBN4buPIC0gxJDhu4thIGNo4bqldA!5e0!3m2!1svi!2s!4v1599885040391!5m2!1svi!2s" width="220" height="120" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+        <footer>
+            <p>&copy; @DateTime.Now.Year -- Mai Ngọc ASP.NET Application</p>
+        </footer>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+
+
+
 </body>
 </html>

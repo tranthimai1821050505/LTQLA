@@ -13,7 +13,6 @@ namespace LTA.Models
         [Key]
         public string MaKhachHang { get; set; }
         public string TenKhachHang { get; set; }
-      
-
+        public string SoBan { get; set; }
     }
 }

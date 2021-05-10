@@ -128,6 +128,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BansController.cs" />
+    <Compile Include="Controllers\CasController.cs" />
     <Compile Include="Controllers\CheckAccountController.cs" />
     <Compile Include="Controllers\DanhMucsController.cs" />
     <Compile Include="Controllers\DonHangsController.cs" />
@@ -139,29 +141,19 @@
     <Compile Include="Controllers\NgaysController.cs" />
     <Compile Include="Controllers\NhanViensController.cs" />
     <Compile Include="Controllers\PhieuThusController.cs" />
+    <Compile Include="Controllers\PhuTrachesController.cs" />
+    <Compile Include="Controllers\QuanBansController.cs" />
     <Compile Include="Controllers\ThanhToansController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103041825203_Create_Table_KhachHang.cs" />
-    <Compile Include="Migrations\202103041825203_Create_Table_KhachHang.Designer.cs">
-      <DependentUpon>202103041825203_Create_Table_KhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202103081337526_Create_Table_NhanVien.cs" />
     <Compile Include="Migrations\202103081337526_Create_Table_NhanVien.Designer.cs">
       <DependentUpon>202103081337526_Create_Table_NhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103081339446_Create_Table_PhieuThu.cs" />
-    <Compile Include="Migrations\202103081339446_Create_Table_PhieuThu.Designer.cs">
-      <DependentUpon>202103081339446_Create_Table_PhieuThu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202103081341481_Create_Table_Ngay.cs" />
     <Compile Include="Migrations\202103081341481_Create_Table_Ngay.Designer.cs">
       <DependentUpon>202103081341481_Create_Table_Ngay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103081342383_Create_Table_ThanhToan.cs" />
-    <Compile Include="Migrations\202103081342383_Create_Table_ThanhToan.Designer.cs">
-      <DependentUpon>202103081342383_Create_Table_ThanhToan.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202103081437238_Create_Table_DanhMuc.cs" />
     <Compile Include="Migrations\202103081437238_Create_Table_DanhMuc.Designer.cs">
@@ -195,7 +187,37 @@
     <Compile Include="Migrations\202104200346577_Create_table_CheckAccount.Designer.cs">
       <DependentUpon>202104200346577_Create_table_CheckAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105101240244_Create_Table_Ban.cs" />
+    <Compile Include="Migrations\202105101240244_Create_Table_Ban.Designer.cs">
+      <DependentUpon>202105101240244_Create_Table_Ban.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105101241108_Create_Table_Ca.cs" />
+    <Compile Include="Migrations\202105101241108_Create_Table_Ca.Designer.cs">
+      <DependentUpon>202105101241108_Create_Table_Ca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105101242536_Create_Table_KhachHang.cs" />
+    <Compile Include="Migrations\202105101242536_Create_Table_KhachHang.Designer.cs">
+      <DependentUpon>202105101242536_Create_Table_KhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105101243569_Create_Table_PhieuThu.cs" />
+    <Compile Include="Migrations\202105101243569_Create_Table_PhieuThu.Designer.cs">
+      <DependentUpon>202105101243569_Create_Table_PhieuThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105101247540_Create_Table_PhuTrach.cs" />
+    <Compile Include="Migrations\202105101247540_Create_Table_PhuTrach.Designer.cs">
+      <DependentUpon>202105101247540_Create_Table_PhuTrach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105101249427_Create_Table_QuanBan.cs" />
+    <Compile Include="Migrations\202105101249427_Create_Table_QuanBan.Designer.cs">
+      <DependentUpon>202105101249427_Create_Table_QuanBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105101252105_Create_Table_ThanhToan.cs" />
+    <Compile Include="Migrations\202105101252105_Create_Table_ThanhToan.Designer.cs">
+      <DependentUpon>202105101252105_Create_Table_ThanhToan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Ban.cs" />
+    <Compile Include="Models\Ca.cs" />
     <Compile Include="Models\CheckAccount.cs" />
     <Compile Include="Models\DanhMuc.cs" />
     <Compile Include="Models\DonHang.cs" />
@@ -209,10 +231,15 @@
     <Compile Include="Models\Ngay.cs" />
     <Compile Include="Models\NhanVien.cs" />
     <Compile Include="Models\PhieuThu.cs" />
+    <Compile Include="Models\PhuTrach.cs" />
+    <Compile Include="Models\QuanBan.cs" />
     <Compile Include="Models\ThanhToan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\images\banner.jpg" />
+    <Content Include="Assets\images\banner1.jpg" />
+    <Content Include="Assets\images\banner2.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -606,11 +633,6 @@
     <Content Include="Views\NhanViens\Details.cshtml" />
     <Content Include="Views\NhanViens\Edit.cshtml" />
     <Content Include="Views\NhanViens\Index.cshtml" />
-    <Content Include="Views\PhieuThus\Create.cshtml" />
-    <Content Include="Views\PhieuThus\Delete.cshtml" />
-    <Content Include="Views\PhieuThus\Details.cshtml" />
-    <Content Include="Views\PhieuThus\Edit.cshtml" />
-    <Content Include="Views\PhieuThus\Index.cshtml" />
     <Content Include="Views\Ngays\Create.cshtml" />
     <Content Include="Views\Ngays\Delete.cshtml" />
     <Content Include="Views\Ngays\Details.cshtml" />
@@ -648,6 +670,32 @@
     <Content Include="Views\LoaiDanhMucs\Index.cshtml" />
     <Content Include="Views\CheckAccount\Login.cshtml" />
     <Content Include="Views\CheckAccount\Register.cshtml" />
+    <Content Include="Views\Bans\Create.cshtml" />
+    <Content Include="Views\Bans\Delete.cshtml" />
+    <Content Include="Views\Bans\Details.cshtml" />
+    <Content Include="Views\Bans\Edit.cshtml" />
+    <Content Include="Views\Bans\Index.cshtml" />
+    <Content Include="Views\Cas\Create.cshtml" />
+    <Content Include="Views\Cas\Delete.cshtml" />
+    <Content Include="Views\Cas\Details.cshtml" />
+    <Content Include="Views\Cas\Edit.cshtml" />
+    <Content Include="Views\Cas\Index.cshtml" />
+    <Content Include="Views\PhuTraches\Create.cshtml" />
+    <Content Include="Views\PhuTraches\Delete.cshtml" />
+    <Content Include="Views\PhuTraches\Details.cshtml" />
+    <Content Include="Views\PhuTraches\Edit.cshtml" />
+    <Content Include="Views\PhuTraches\Index.cshtml" />
+    <Content Include="Views\QuanBans\Create.cshtml" />
+    <Content Include="Views\QuanBans\Delete.cshtml" />
+    <Content Include="Views\QuanBans\Details.cshtml" />
+    <Content Include="Views\QuanBans\Edit.cshtml" />
+    <Content Include="Views\QuanBans\Index.cshtml" />
+    <Content Include="Views\PhieuThus\Create.cshtml" />
+    <Content Include="Views\PhieuThus\Delete.cshtml" />
+    <Content Include="Views\PhieuThus\Details.cshtml" />
+    <Content Include="Views\PhieuThus\Edit.cshtml" />
+    <Content Include="Views\PhieuThus\Index.cshtml" />
+    <Content Include="Views\NhanViens\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -667,20 +715,11 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103041825203_Create_Table_KhachHang.resx">
-      <DependentUpon>202103041825203_Create_Table_KhachHang.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103081337526_Create_Table_NhanVien.resx">
       <DependentUpon>202103081337526_Create_Table_NhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103081339446_Create_Table_PhieuThu.resx">
-      <DependentUpon>202103081339446_Create_Table_PhieuThu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103081341481_Create_Table_Ngay.resx">
       <DependentUpon>202103081341481_Create_Table_Ngay.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103081342383_Create_Table_ThanhToan.resx">
-      <DependentUpon>202103081342383_Create_Table_ThanhToan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103081437238_Create_Table_DanhMuc.resx">
       <DependentUpon>202103081437238_Create_Table_DanhMuc.cs</DependentUpon>
@@ -705,6 +744,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104200346577_Create_table_CheckAccount.resx">
       <DependentUpon>202104200346577_Create_table_CheckAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105101240244_Create_Table_Ban.resx">
+      <DependentUpon>202105101240244_Create_Table_Ban.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105101241108_Create_Table_Ca.resx">
+      <DependentUpon>202105101241108_Create_Table_Ca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105101242536_Create_Table_KhachHang.resx">
+      <DependentUpon>202105101242536_Create_Table_KhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105101243569_Create_Table_PhieuThu.resx">
+      <DependentUpon>202105101243569_Create_Table_PhieuThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105101247540_Create_Table_PhuTrach.resx">
+      <DependentUpon>202105101247540_Create_Table_PhuTrach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105101249427_Create_Table_QuanBan.resx">
+      <DependentUpon>202105101249427_Create_Table_QuanBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105101252105_Create_Table_ThanhToan.resx">
+      <DependentUpon>202105101252105_Create_Table_ThanhToan.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

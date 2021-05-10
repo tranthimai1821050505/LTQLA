@@ -13,6 +13,7 @@ namespace LTA.Controllers
         {
             return View();
         }
+       // [Authorize(Roles = "CheckUername")]
         [Authorize]
         public ActionResult About()
         {
@@ -20,6 +21,7 @@ namespace LTA.Controllers
 
             return View();
         }
+       // [Authorize(Roles = "CheckUername")]
         [Authorize]
         public ActionResult Contact()
         {

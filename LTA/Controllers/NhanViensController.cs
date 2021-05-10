@@ -6,13 +6,49 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using LTA.Models;
 
 namespace LTA.Controllers
 {
     public class NhanViensController : Controller
     {
+      //  [Authorize(Roles = "CheckUername")]
         private LTADbContext db = new LTADbContext();
+
+        public ViewResult Login(string returnUrl)
+        {
+            ViewBag.returnUrl = returnUrl;
+            return View();
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string CheckUsername, string CheckPassword)
+        {
+            if (string.IsNullOrEmpty(CheckUsername))
+            {
+                ViewBag.CheckUsernameError = " Nhập Username đi";
+            }
+            else if (string.IsNullOrEmpty(CheckPassword))
+            {
+                ViewBag.CheckPasswordError = " Nhập Password đi";
+            }
+            else
+            {
+                if (CheckUsername.Equals("CheckUsername") && CheckPassword.Equals("abc123"))
+                {
+                    FormsAuthentication.SetAuthCookie(CheckUsername, false);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.invalidData = "Nhập username = CheckUsername và pass = abc123 đi";
+                }
+            }
+            ViewBag.CheckUsername = CheckUsername;
+            return View();
+        }
 
         // GET: NhanViens
         public ActionResult Index()

@@ -25,6 +25,10 @@ namespace LTA.Models
         public virtual DbSet<DonThanhToan> DonThanhToans { get; set; }
         public virtual DbSet<DonPhieuThu> DonPhieuThus { get; set; }
         public virtual DbSet<CheckAccount> CheckAccounts { get; set; }
+        public virtual DbSet<Ca> Cas { get; set; }
+        public virtual DbSet<Ban> Bans { get; set; }
+        public virtual DbSet<PhuTrach> PhuTrachs { get; set; }
+        public virtual DbSet<QuanBan> QuanBans { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -55,7 +59,7 @@ namespace LTA.Models
               .Property(e => e.NgayThang)
               .IsUnicode(false);
             modelBuilder.Entity<PhieuThu>()
-              .Property(e => e.SoKhach)
+              .Property(e => e.MaKhachHang)
               .IsUnicode(false);
             modelBuilder.Entity<PhieuThu>()
               .Property(e => e.TongTien)

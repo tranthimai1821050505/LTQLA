@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -15,19 +16,19 @@ namespace LTA.Controllers
         private LTADbContext db = new LTADbContext();
 
         // GET: PhieuThus
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View(db.PhieuThus.ToList());
+            return View(await db.PhieuThus.ToListAsync());
         }
 
         // GET: PhieuThus/Details/5
-        public ActionResult Details(string id)
+        public async Task<ActionResult> Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PhieuThu phieuThu = db.PhieuThus.Find(id);
+            PhieuThu phieuThu = await db.PhieuThus.FindAsync(id);
             if (phieuThu == null)
             {
                 return HttpNotFound();
@@ -46,12 +47,12 @@ namespace LTA.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SoPhieuThu,MaNhanVien,Ngay,SoKhach,TongTien")] PhieuThu phieuThu)
+        public async Task<ActionResult> Create([Bind(Include = "SoPhieuThu,MaNhanVien,NgayThang,MaKhachHang,TongTien")] PhieuThu phieuThu)
         {
             if (ModelState.IsValid)
             {
                 db.PhieuThus.Add(phieuThu);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
@@ -59,13 +60,13 @@ namespace LTA.Controllers
         }
 
         // GET: PhieuThus/Edit/5
-        public ActionResult Edit(string id)
+        public async Task<ActionResult> Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PhieuThu phieuThu = db.PhieuThus.Find(id);
+            PhieuThu phieuThu = await db.PhieuThus.FindAsync(id);
             if (phieuThu == null)
             {
                 return HttpNotFound();
@@ -78,25 +79,25 @@ namespace LTA.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SoPhieuThu,MaNhanVien,Ngay,SoKhach,TongTien")] PhieuThu phieuThu)
+        public async Task<ActionResult> Edit([Bind(Include = "SoPhieuThu,MaNhanVien,NgayThang,MaKhachHang,TongTien")] PhieuThu phieuThu)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(phieuThu).State = EntityState.Modified;
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(phieuThu);
         }
 
         // GET: PhieuThus/Delete/5
-        public ActionResult Delete(string id)
+        public async Task<ActionResult> Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PhieuThu phieuThu = db.PhieuThus.Find(id);
+            PhieuThu phieuThu = await db.PhieuThus.FindAsync(id);
             if (phieuThu == null)
             {
                 return HttpNotFound();
@@ -107,11 +108,11 @@ namespace LTA.Controllers
         // POST: PhieuThus/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public async Task<ActionResult> DeleteConfirmed(string id)
         {
-            PhieuThu phieuThu = db.PhieuThus.Find(id);
+            PhieuThu phieuThu = await db.PhieuThus.FindAsync(id);
             db.PhieuThus.Remove(phieuThu);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 

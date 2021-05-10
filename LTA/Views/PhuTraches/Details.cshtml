@@ -1,0 +1,35 @@
+﻿@model LTA.Models.PhuTrach
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PhuTrach</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SoCa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoCa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoBan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoBan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaNhanVien }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

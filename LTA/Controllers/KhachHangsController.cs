@@ -50,7 +50,7 @@ namespace LTA.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TenKhachHang,MaKhachHang")] KhachHang khachHang)
+        public ActionResult Create([Bind(Include = "MaKhachHang,TenKhachHang")] KhachHang khachHang)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace LTA.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TenKhachHang,MaKhachHang")] KhachHang khachHang)
+        public ActionResult Edit([Bind(Include = "MaKhachHang,TenKhachHang")] KhachHang khachHang)
         {
             if (ModelState.IsValid)
             {
@@ -118,7 +118,6 @@ namespace LTA.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        //upload file
         public ActionResult UploadFile(HttpPostedFileBase file)
         {
             //dat ten cho file
@@ -136,12 +135,14 @@ namespace LTA.Controllers
                 KhachHang kh = new KhachHang();
                 kh.MaKhachHang = dt.Rows[i][0].ToString();
                 kh.TenKhachHang = dt.Rows[i][1].ToString();
+                kh.SoBan = dt.Rows[i][2].ToString();
                 db.KhachHangs.Add(kh);
                 db.SaveChanges();
             }
 
             // CopyDataByBulk(excel.ReadDataFromExcelFile(_path));
-            return View("Index");
+            //  return View("Index");
+            return RedirectToAction("Index");
         }
         //upload file
         public DataTable ReadDataFromExcelFile(string filepath)
@@ -202,6 +203,7 @@ namespace LTA.Controllers
             bulkcopy.DestinationTableName = "KhachHangs";
             bulkcopy.ColumnMappings.Add(0, "MaKhachHang");
             bulkcopy.ColumnMappings.Add(1, "TenKhachHang");
+            bulkcopy.ColumnMappings.Add(2, "SoBan");
 
             con.Open();
             bulkcopy.WriteToServer(dt);
